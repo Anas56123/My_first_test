@@ -1,11 +1,11 @@
-import Header from "./Header";
-import Main from "./MainApp";
+import Body from "./Body";
+import Posts from "./Posts";
 
 export default function App() {
   return (
     <>
-      <Header />
-      <Main />
+      <Body />
+      <Posts />
     </>
   );
 }

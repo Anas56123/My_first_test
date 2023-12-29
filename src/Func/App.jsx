@@ -12,7 +12,6 @@ const App = () => {
 
   return (
     <div>
-      <h1>The Post System</h1>
       <PostForm onSubmit={handlePostSubmit} />
       <div className="posts">
         {posts.map((post, index) => (

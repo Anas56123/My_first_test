@@ -1,0 +1,16 @@
+body{
+    font-family: sans-serif;
+}
+
+#bodyFlex{
+    display: flex;
+    justify-content: space-around;
+}
+
+main {
+    width: 70%;
+}
+
+.about,.social{
+    margin-left: 2rem;
+}
