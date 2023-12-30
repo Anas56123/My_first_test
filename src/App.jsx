@@ -1,5 +1,5 @@
 import Body from "./Body";
-import Posts from "./Posts";
+import Posts from "./Post/Posts";
 
 export default function App() {
   return (
