@@ -1,11 +1,15 @@
-import Body from "./Body";
-import Posts from "./Post/Posts";
+import Aside from "./Aside";
+import PostList from "./Func/PostList";
+import Header from "./Header";
 
 export default function App() {
   return (
     <>
-      <Body />
-      <Posts />
+      <Header />
+      <div className="split">
+        <Aside />
+        <PostList />
+      </div>
     </>
   );
 }

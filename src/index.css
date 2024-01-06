@@ -1,16 +1,141 @@
 body{
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
-#bodyFlex{
-    display: flex;
-    justify-content: space-around;
+.post{
+  display: flex;
+  flex-direction: column;
 }
 
-main {
-    width: 70%;
+.headerPost{
+  display: flex;
+}
+
+.headerPost div{
+  display: flex;
+  flex-direction: column;
+}
+
+.headerPost img{
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.headerPost div{
+  display: flex;
+  margin-left: 0.5rem;
+  text-align: center;
+}
+
+.h6{
+  margin: 0%;
+  text-decoration: none;
+  color: rgb(69, 69, 85);
+}
+.h62{
+  margin: 0%;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.emos{
+  display: flex;
+  gap: 2rem;
+}
+
+.emos div{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.emos div button{
+  background-color: rgba(255, 255, 255, 0);
+  border: 0rem;
+}
+
+body{
+  font-family: sans-serif;
+}
+
+.split{
+  display: flex;
+  justify-content: space-around;
 }
 
 .about,.social{
-    margin-left: 2rem;
+  margin-left: 2rem;
+}
+
+.comment{
+  width: Fill (590.66px);
+  height: Fill (72px);
+  padding: 12px;
+  border-radius: 8px;
+  gap: 4px;
+  background: #F4F6F8;
+}
+
+.comment img{
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.comments{
+  display: flex;
+}
+
+.content div{
+  display: flex;
+  gap: 28rem;
+}
+
+button, .inputButton{
+  border: 0rem;
+  background-color: black;
+  color: #fff;
+  border-radius: 0.5rem;
+  width: auto;
+  height: 2rem;
+}
+
+.postInput{
+  width: 40rem;
+  height: 5rem;
+  border: 1px solid #919EAB33;
+  border-radius: 1rem;
+}
+
+.formPost{
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.formPost div{
+  width: 40rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+label input{
+  width: 590.66px;
+  height: 40px;
+  padding: 5.44px, 1px, 5.43px, 13px;
+  border-radius: 8px;
+  border: 1px;
+  border: 1px solid #919EAB52
+}
+
+.commentForm{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.commentForm button{
+  height: auto;
+}
+
+header{
+  width: auto;
+  height: auto;
 }
