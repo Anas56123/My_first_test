@@ -76,10 +76,10 @@ const Post = ({ post }) => {
 
   function addEmo(state, setState) {
     if (emoLove + emoLike + emoLaugh + emoWaaaoo >= 1) {
-      setEmoLove(0)
-      setEmoLike(0)
-      setEmoLaugh(0)
-      setEmoWaaaoo(0)
+      setEmoLove(0);
+      setEmoLike(0);
+      setEmoLaugh(0);
+      setEmoWaaaoo(0);
     }
     setState(state + 1);
   }
