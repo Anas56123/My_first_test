@@ -1,4 +1,5 @@
 import { useState } from "react";
+//
 
 const CommentList = ({ comments }) => {
   const date = [
@@ -14,24 +15,32 @@ const CommentList = ({ comments }) => {
   const [emoWaaaoo, setEmoWaaaoo] = useState(0);
 
   function addEmo(state, setState) {
+    if (emoLove + emoLike + emoLaugh + emoWaaaoo >= 1) {
+      setEmoLove(0);
+      setEmoLike(0);
+      setEmoLaugh(0);
+      setEmoWaaaoo(0);
+    }
+    if (state >= 1) return;
     setState(state + 1);
   }
+
   return (
     <div className="comment-list">
       <h2>Comments</h2>
-      {comments.map((comment, index) => (
+      {comments?.map((comment, index) => (
         <div key={index} className="comment">
           <div className="comments">
             <img
-              src="https://xnylfzidtqdavjtgwbzo.supabase.co/storage/v1/object/sign/URL/Button-3.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJVUkwvQnV0dG9uLTMucG5nIiwiaWF0IjoxNzAzOTMzMTY0LCJleHAiOjE3MDY1MjUxNjR9.GZdKs4KfxBCq6wW9IIUk840oP_pHRmA-UULMY4qZZj4&t=2023-12-30T10%3A46%3A04.059Z"
+              src={comment.img}
               alt="Avatar"
             />
             <div className="content">
               <div>
-                <h5>{comment.author}</h5>
-                <p>{date}</p>
+                <h5>{comment.name}</h5>
+                <p>{comment.date}</p>
               </div>
-              <p>{comment.text}</p>
+              <p>{comment.comment}</p>
             </div>
           </div>
           <div className="emos">

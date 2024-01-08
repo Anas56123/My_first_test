@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import CommentForm from "../Comment/CommentForm";
 import CommentList from "../Comment/CommentList";
 import { getPost } from "../Supabase/apiPost";
+import supabase from "../Supabase/supabase";
 
 const initialPost = {
   userAvatarURL:
@@ -30,6 +31,24 @@ const PostForm = ({ addPost }) => {
     });
   };
 
+  const addObjectToTable = async (objValue) => {
+    try {
+      const { error } = await supabase
+        .from('Posts')
+        .insert([
+          objValue
+        ]);
+  
+      if (error) {
+        console.error('Error adding object:', error);
+      } else {
+        console.log('Object added successfully');
+      }
+    } catch (error) {
+      console.error('Error adding object:', error.message);
+    }
+  };
+
   const handleImageChange = (event) => {
     if (!event.target.files[0]) return;
     const file = event.target.files[0];
@@ -43,6 +62,7 @@ const PostForm = ({ addPost }) => {
     event.preventDefault();
     addPost(newPost);
     setNewPost(initialPost);
+    addObjectToTable(newPost)
   };
 
   return (
@@ -68,7 +88,6 @@ const Post = ({ post }) => {
   const [emoLike, setEmoLike] = useState(0);
   const [emoLaugh, setEmoLaugh] = useState(0);
   const [emoWaaaoo, setEmoWaaaoo] = useState(0);
-  const [comments, setComments] = useState([]);
 
   const addComment = (newComment) => {
     setComments([...comments, newComment]);
@@ -81,6 +100,7 @@ const Post = ({ post }) => {
       setEmoLaugh(0);
       setEmoWaaaoo(0);
     }
+    if (state >= 1) return;
     setState(state + 1);
   }
 
@@ -119,7 +139,7 @@ const Post = ({ post }) => {
           <p>{emoWaaaoo}</p>
         </div>
       </div>
-      <CommentList comments={comments} />
+      <CommentList comments={post.comment} />
       <CommentForm addComment={addComment} />
     </div>
   );
