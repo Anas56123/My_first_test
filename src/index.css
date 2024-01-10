@@ -138,4 +138,14 @@ label input{
 header{
   width: auto;
   height: auto;
+  display: grid;
+}
+
+.headerImg{
+  border-radius: 1rem;
+}
+
+.headerAvatar{
+  height: 9rem;
+  width: 9rem;
 }

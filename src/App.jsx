@@ -3,6 +3,7 @@ import PostList from "./Func/PostList";
 import Header from "./Header";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+// import LetUsTry from "./LetUsTry";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,6 +22,7 @@ export default function App() {
         <Aside />
         <PostList />
       </div>
+      {/* <LetUsTry /> */}
     </QueryClientProvider>
   );
 }

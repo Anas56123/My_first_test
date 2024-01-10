@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const CommentForm = ({ addComment }) => {
-  const [newComment, setNewComment] = useState({ text: '', author: 'Jaydon Frankie' });
+  const [newComment, setNewComment] = useState({ comment: '', name: 'Jaydon Frankie' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -11,7 +11,8 @@ const CommentForm = ({ addComment }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     addComment(newComment);
-    setNewComment({ text: '', author: 'Jaydon Frankie' });
+    setNewComment({ comment: '', name: 'Jaydon Frankie' });
+    
   };
 
   return (
