@@ -1,14 +1,7 @@
 import { useState } from "react";
 
 const CommentList = ({ comments }) => {
-  const date = [
-    String(new Date().getFullYear()),
-    "-",
-    String(new Date().getMonth() + 1),
-    "-",
-    String(new Date().getDay()),
-  ].join("");
-
+  
   function NewCommentEmos() {
     const [emoLove, setEmoLove] = useState(0);
     const [emoLike, setEmoLike] = useState(0);

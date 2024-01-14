@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import CommentForm from "../Comment/CommentForm";
 import CommentList from "../Comment/CommentList";
 import { getPost } from "../Supabase/apiPost";
+import supabase from "../Supabase/supabase";
 import { PostForm } from "./PostForm";
 
 const Post = ({ post }) => {
@@ -10,8 +11,17 @@ const Post = ({ post }) => {
   const [emoLaugh, setEmoLaugh] = useState(0);
   const [emoWaaaoo, setEmoWaaaoo] = useState(0);
 
-  const addComment = (newComment) => {
-    setComments([...comments, newComment]);
+  const addComment = async (id, newComment) => {
+    const { data, error } = await supabase
+    .from('Posts')
+    .update({ comment: newComment }) // Replace 'columnName' with the actual column name where you want to insert the object
+    .eq('id', id);
+
+  if (error) {
+    console.error('Error updating row:', error.message);
+  } else {
+    console.log('Row updated successfully:', data);
+  }
   };
 
   function addEmo(state, setState) {
@@ -62,7 +72,7 @@ const Post = ({ post }) => {
       </div>
       <div className="allComments">
         <CommentList comments={post.comment} />
-        <CommentForm addComment={addComment} />
+        <CommentForm addComment={addComment(post.id)} />
       </div>
     </div>
   );
