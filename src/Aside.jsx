@@ -1,10 +1,18 @@
 export default function Aside() {
   return (
     <aside>
-      <div className="Follow">
-        <img src="./assets/div.MuiPaper-root.png" alt="" />
-      </div>
       <div className="A-S">
+        <div className="follow">
+          <div>
+            <h1 className="numFollow">1,947</h1>
+            <p className="nameFollow">Follower</p>
+          </div>
+          <hr className="vl" />
+          <div>
+            <h1 className="numFollow">9,124</h1>
+            <p className="nameFollow">Following</p>
+          </div>
+        </div>
         <div className="about">
           <h2>About</h2>
           <p>

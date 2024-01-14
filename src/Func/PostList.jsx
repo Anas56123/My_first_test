@@ -40,7 +40,7 @@ const Post = ({ post }) => {
       </div>
       <p>{post.content}</p>
       {post.posterImageURL && (
-        <img src={post.posterImageURL} alt="Posted Image" />
+        <img src={post.posterImageURL} alt="Posted Image" className="stableImg" />
       )}
       <div className="emos">
         <div className="love">
@@ -60,8 +60,10 @@ const Post = ({ post }) => {
           <p>{emoWaaaoo}</p>
         </div>
       </div>
-      <CommentList comments={post.comment} />
-      <CommentForm addComment={addComment} />
+      <div className="allComments">
+        <CommentList comments={post.comment} />
+        <CommentForm addComment={addComment} />
+      </div>
     </div>
   );
 };

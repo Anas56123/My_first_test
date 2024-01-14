@@ -4,6 +4,9 @@ body{
 }
 
 .post{
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -15,6 +18,18 @@ body{
 .headerPost div{
   display: flex;
   flex-direction: column;
+}
+
+.comment-list{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.allComments{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .headerPost img{
@@ -63,7 +78,7 @@ body{
   justify-content: space-around;
 }
 
-.about,.social{
+.A-S div{
   background-color: #fff;
   padding: 0.5rem;
   border-radius: 1rem;
@@ -76,18 +91,36 @@ body{
   margin: 1rem;
 }
 
+.follow{
+  display: flex;
+  justify-content: space-around;
+}
+
+.numFollow, .nameFollow, .vl{
+  margin-left: 0rem;
+  margin-right: 0rem;
+}
+
+.numFollow{
+  margin-bottom: 0.5rem;
+}
+
+.vl{
+  border-style: dashed;
+  margin: 1rem;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  color: #6373814d;
+}
+
+.nameFollow{
+  margin-top: 0.5rem;
+  color: #637381c8;
+}
+
 .social div{
   display: flex;
   gap: 0.5rem;
-}
-
-.comment{
-  width: Fill (590.66px);
-  height: Fill (72px);
-  padding: 12px;
-  border-radius: 8px;
-  gap: 4px;
-  background: #F4F6F8;
 }
 
 .comment img{
@@ -95,13 +128,40 @@ body{
   height: 3.5rem;
 }
 
+.stableImg{
+  width: 730px;
+  height: auto;
+}
+
 .comments{
   display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .content div{
+  width: 40rem;
   display: flex;
-  gap: 28rem;
+  justify-content: space-between;
+}
+
+.post-list{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+h4{
+  margin-top: 0;
+}
+
+.content{
+  width: Fill (590.66px);
+  height: Fill (72px);
+  padding: 12px;
+  border-radius: 8px;
+  gap: 4px;
+  background: #F4F6F8;
 }
 
 button, .inputButton{
@@ -115,8 +175,12 @@ button, .inputButton{
   text-align: center;
 }
 
+button{
+  border-bottom: 1rem;
+}
+
 .postInput{
-  width: 40rem;
+  width: 45rem;
   height: 5rem;
   border: 1px solid #919EAB33;
   border-radius: 1rem;
