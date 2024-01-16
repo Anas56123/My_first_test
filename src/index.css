@@ -190,9 +190,12 @@ button{
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  background-color: #FFF;
+  padding: 2rem;
+  border-radius: 1rem;
 }
 
-.formPost div{
+.formPostDiv{
   width: 45rem;
   display: flex;
   justify-content: space-between;
@@ -229,6 +232,31 @@ header{
 .headerImg{
   border-radius: 1rem;
   grid-row: 1;
+}
+
+input[type="file"]{
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.formPostDiv div{
+  display: grid;
+  grid-template-rows: 33px;
+  grid-template-columns: 32px 100px;
+}
+
+.iv{
+  background-color: #F4F6F8;
+  width: 100px;
+  padding: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 1rem;
+  grid-row: 1;
+  grid-column: 2;
 }
 
 .headerAvatar{

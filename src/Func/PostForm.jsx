@@ -16,7 +16,6 @@ const initialPost = {
   posterImageURL: null,
 };
 
-
 export const PostForm = ({ addPost }) => {
   const [newPost, setNewPost] = useState(initialPost);
 
@@ -69,8 +68,12 @@ export const PostForm = ({ addPost }) => {
         onChange={handleInputChange}
         placeholder="Share what you are thinking here..."
       />
-      <div>
-        <input type="file" accept="image/*" onChange={handleImageChange} />
+      <div className="formPostDiv">
+        <div className="grid">
+          <input type="file" accept="image/*" onChange={handleImageChange} />
+          <label className="iv">Image/Video</label>
+          <img src="./assets/Icons/Img_margin.svg" alt="" />
+        </div>
         <button type="submit">Post</button>
       </div>
     </form>
