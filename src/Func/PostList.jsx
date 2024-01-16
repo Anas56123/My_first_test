@@ -6,33 +6,128 @@ import supabase from "../Supabase/supabase";
 import { PostForm } from "./PostForm";
 
 const Post = ({ post }) => {
-  const [emoLove, setEmoLove] = useState(0);
-  const [emoLike, setEmoLike] = useState(0);
-  const [emoLaugh, setEmoLaugh] = useState(0);
-  const [emoWaaaoo, setEmoWaaaoo] = useState(0);
+  const [emoLove, setEmoLove] = useState(post.emoLoveSupabase);
+  const [emoLike, setEmoLike] = useState(post.emoLikeSupabase);
+  const [emoLaugh, setEmoLaugh] = useState(post.emoLaughSupabase);
+  const [emoWaaaoo, setEmoWaaaoo] = useState(post.emoWaaaooSupabase);
 
-  const addComment = async (id, newComment) => {
-    const { data, error } = await supabase
-    .from('Posts')
-    .update({ comment: newComment }) // Replace 'columnName' with the actual column name where you want to insert the object
-    .eq('id', id);
+  const addComment = async (rowId, newComment) => {
+    try {
+      const { error } = await supabase
+        .from("Posts")
+        .select("*")
+        .eq("id", rowId);
 
-  if (error) {
-    console.error('Error updating row:', error.message);
-  } else {
-    console.log('Row updated successfully:', data);
-  }
+      if (error) {
+        throw error;
+      }
+
+      const { updateError } = await supabase
+        .from("Posts")
+        .update({ comment: [...post.comment, newComment] })
+        .eq("id", rowId);
+
+      if (updateError) {
+        throw updateError;
+      }
+
+      console.log(`Comment updated successfully for row with id ${rowId}`);
+    } catch (err) {
+      console.error("Error updating comment:", err.message);
+    }
   };
 
-  function addEmo(state, setState) {
-    if (emoLove + emoLike + emoLaugh + emoWaaaoo >= 1) {
-      setEmoLove(0);
-      setEmoLike(0);
-      setEmoLaugh(0);
-      setEmoWaaaoo(0);
+  function addEmoLove(state, setState, rowId) {
+    if (emoLove + emoLike + emoLaugh + emoWaaaoo >= post.emoLoveSupabase + 1) {
+      setEmoLove(post.emoLoveSupabase);
+      setEmoLike(post.emoLikeSupabase);
+      setEmoLaugh(post.emoLaughSupabase);
+      setEmoWaaaoo(post.emoWaaaooSupabase);
+    }
+
+    async function updatingEmos() {
+      const { updateError } = await supabase
+        .from("Posts")
+        .update({ emoLoveSupabase: state })
+        .eq("id", rowId);
+
+      if (updateError) {
+        throw updateError;
+      }
+    }
+    updatingEmos()
+
+    if (state >= post.emoLoveSupabase + 1) return;
+    setState(state + 1);
+  }
+
+  function addEmoLike(state, setState, rowId) {
+    if (emoLove + emoLike + emoLaugh + emoWaaaoo >= post.emoLoveSupabase + 1) {
+      setEmoLove(post.emoLoveSupabase);
+      setEmoLike(post.emoLikeSupabase);
+      setEmoLaugh(post.emoLaughSupabase);
+      setEmoWaaaoo(post.emoWaaaooSupabase);
     }
     if (state >= 1) return;
     setState(state + 1);
+
+    async function updatingEmos() {
+      const { updateError } = await supabase
+        .from("Posts")
+        .update({ emoLikeSupabase: state })
+        .eq("id", rowId);
+
+      if (updateError) {
+        throw updateError;
+      }
+    }
+    updatingEmos()
+  }
+
+  function addEmoLaugh(state, setState, rowId) {
+    if (emoLove + emoLike + emoLaugh + emoWaaaoo >= post.emoLoveSupabase + 1) {
+      setEmoLove(post.emoLoveSupabase);
+      setEmoLike(post.emoLikeSupabase);
+      setEmoLaugh(post.emoLaughSupabase);
+      setEmoWaaaoo(post.emoWaaaooSupabase);
+    }
+    if (state >= 1) return;
+    setState(state + 1);
+
+    async function updatingEmos() {
+      const { updateError } = await supabase
+        .from("Posts")
+        .update({ emoLaughSupabase: state })
+        .eq("id", rowId);
+
+      if (updateError) {
+        throw updateError;
+      }
+    }
+    updatingEmos()
+  }
+
+  function addEmoWaaaoo(state, setState, rowId) {
+    if (emoLove + emoLike + emoLaugh + emoWaaaoo >= post.emoLoveSupabase + 1) {
+      setEmoLove(post.emoLoveSupabase);
+      setEmoLike(post.emoLikeSupabase);
+      setEmoLaugh(post.emoLaughSupabase);
+      setEmoWaaaoo(post.emoWaaaooSupabase);
+    }
+    if (state >= 1) return;
+    setState(state + 1);
+
+    async function updatingEmos() {
+      const { updateError } = await supabase
+        .from("Posts")
+        .update({ emoWaaaooSupabase: state })
+        .eq("id", rowId);
+
+      if (updateError) {
+        throw updateError;
+      }
+    }
+    updatingEmos()
   }
 
   return (
@@ -50,29 +145,33 @@ const Post = ({ post }) => {
       </div>
       <p>{post.content}</p>
       {post.posterImageURL && (
-        <img src={post.posterImageURL} alt="Posted Image" className="stableImg" />
+        <img
+          src={post.posterImageURL}
+          alt="Posted Image"
+          className="stableImg"
+        />
       )}
       <div className="emos">
         <div className="love">
-          <button onClick={() => addEmo(emoLove, setEmoLove)}>❤️</button>
+          <button onClick={() => addEmoLove(emoLove, setEmoLove, post.id)}>❤️</button>
           <p>{emoLove}</p>
         </div>
         <div className="like">
-          <button onClick={() => addEmo(emoLike, setEmoLike)}>👍</button>
+          <button onClick={() => addEmoLike(emoLike, setEmoLike, post.id)}>👍</button>
           <p>{emoLike}</p>
         </div>
         <div className="laugh">
-          <button onClick={() => addEmo(emoLaugh, setEmoLaugh)}>🤣</button>
+          <button onClick={() => addEmoLaugh(emoLaugh, setEmoLaugh, post.id)}>🤣</button>
           <p>{emoLaugh}</p>
         </div>
         <div className="waaaoo">
-          <button onClick={() => addEmo(emoWaaaoo, setEmoWaaaoo)}>🤯</button>
+          <button onClick={() => addEmoWaaaoo(emoWaaaoo, setEmoWaaaoo, post.id)}>🤯</button>
           <p>{emoWaaaoo}</p>
         </div>
       </div>
       <div className="allComments">
         <CommentList comments={post.comment} />
-        <CommentForm addComment={addComment(post.id)} />
+        <CommentForm addComment={addComment} id={post.id} />
       </div>
     </div>
   );

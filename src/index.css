@@ -217,11 +217,13 @@ label input{
 }
 
 header{
-  width: auto;
-  height: auto;
   display: grid;
   grid-template-columns: 1rem 1rem 1rem 1rem 1rem 10rem 10rem 10rem 5.5rem 10rem 1rem 1rem 1rem;
   grid-template-rows: 10rem 7rem 4rem 1rem 1rem;
+}
+
+.header{
+  width: fit-content;
 }
 
 .headerImg{
