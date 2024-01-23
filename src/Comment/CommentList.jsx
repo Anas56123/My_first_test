@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-const CommentList = ({ comments }) => {
-  
+const CommentList = ({ comments, newComment, submit, setSubmit }) => {
   function NewCommentEmos() {
     const [emoLove, setEmoLove] = useState(0);
     const [emoLike, setEmoLike] = useState(0);
@@ -41,6 +40,24 @@ const CommentList = ({ comments }) => {
     );
   }
 
+  function NC() {
+    return (
+      <div className="comment">
+        <div className="comments">
+          <img src={newComment.img} alt="Avatar" />
+          <div className="content">
+            <div>
+              <h4>{newComment.name}</h4>
+              <span>{newComment.date}</span>
+            </div>
+            <span>{newComment.comment}</span>
+          </div>
+        </div>
+        <NewCommentEmos />
+      </div>
+    );
+  }
+
   return (
     <div className="comment-list">
       <h2>Comments</h2>
@@ -59,6 +76,7 @@ const CommentList = ({ comments }) => {
           <NewCommentEmos />
         </div>
       ))}
+      {submit ? <NC /> : ""}
     </div>
   );
 };

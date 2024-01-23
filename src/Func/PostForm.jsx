@@ -16,7 +16,7 @@ const initialPost = {
   posterImageURL: null,
 };
 
-export const PostForm = ({ addPost }) => {
+const PostForm = ({ addPost }) => {
   const [newPost, setNewPost] = useState(initialPost);
 
   const handleInputChange = (event) => {
@@ -71,11 +71,14 @@ export const PostForm = ({ addPost }) => {
       <div className="formPostDiv">
         <div className="grid">
           <input type="file" accept="image/*" onChange={handleImageChange} />
-          <label className="iv">Image/Video</label>
-          <img src="./assets/Icons/Img_margin.svg" alt="" />
+          <div className="iv">
+            <img src="./assets/Icons/Img_margin.svg" className="bruh" /> Image/Video
+          </div>
         </div>
         <button type="submit">Post</button>
       </div>
     </form>
   );
 };
+
+export default PostForm

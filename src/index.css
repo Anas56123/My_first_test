@@ -13,11 +13,13 @@ body{
 
 .headerPost{
   display: flex;
+  justify-content: space-between;
 }
 
-.headerPost div{
+.headerPost div div{
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .comment-list{
@@ -40,14 +42,27 @@ body{
 .headerPost div{
   display: flex;
   margin-left: 0.5rem;
-  text-align: center;
+  align-items: center;
 }
 
 .h6{
   margin: 0%;
   text-decoration: none;
+  text-align: start;
   color: rgb(69, 69, 85);
+  font-size: small;
 }
+
+.commentForm{
+  display: flex;
+  align-items: center;
+}
+
+.t{
+  width: 3rem;
+  margin: 0%;
+}
+
 .h62{
   margin: 0%;
   margin-top: 1.5rem;
@@ -57,6 +72,32 @@ body{
 .emos{
   display: flex;
   gap: 2rem;
+}
+
+.emosR{
+  display: flex;
+  justify-content: space-between;
+  width: 18rem;
+}
+
+.emosP{
+  display: flex;
+  justify-content: space-between;
+}
+
+.idk a{
+  background-color: black;
+  color: #FFF;
+  text-decoration: none;
+  height: 1.5rem;
+  width: 4rem;
+  border-radius: 1em;
+  text-align: center;
+  cursor: pointer;
+}
+
+button{
+  cursor: pointer;
 }
 
 .emos div{
@@ -74,8 +115,10 @@ body{
 }
 
 .split{
+  margin-left: 1rem;
+  margin-right: 1rem;
   display: flex;
-  justify-content: space-around;
+  gap: 1rem;
 }
 
 .A-S div{
@@ -257,6 +300,8 @@ input[type="file"]{
   border-radius: 1rem;
   grid-row: 1;
   grid-column: 2;
+  display: flex;
+  align-items: center;
 }
 
 .headerAvatar{
@@ -303,3 +348,24 @@ input[type="file"]{
   align-items: center;
   gap: 0.5rem;
 }
+
+.emoji-reaction {
+  display: flex;
+}
+
+.emoji {
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.emoji:hover {
+  transform: scale(1.2);
+}
+
+.emoji.selected {
+  color: blue;
+  transform: scale(1.2);
+}
+
