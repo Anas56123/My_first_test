@@ -1,7 +1,6 @@
 import Aside from "./Aside";
 import PostList from "./Func/PostList";
 import Header from "./Header";
-import LetUsTry from "./LetUsTry";
 
 export default function App() {
   return (
@@ -11,7 +10,6 @@ export default function App() {
         <Aside />
         <PostList />
       </div>
-      <LetUsTry />
     </>
   );
 }

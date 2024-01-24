@@ -1,9 +1,13 @@
-import EmojiReaction from "./EmojiReaction";
+import EmojiReactionComments from "./EmojiReaction/EmojiReactionComments";
+import EmojiReactionPost from "./EmojiReaction/EmojiReactionPost";
 
-export default function LetUsTry() {
+export default function LetUsTry({post}) {
   return (
     <div>
-      <EmojiReaction />
+      <h1>Post</h1>
+      <EmojiReactionPost post={post} />
+      <h1>Comments</h1>
+      <EmojiReactionComments />
     </div>
   )
 }

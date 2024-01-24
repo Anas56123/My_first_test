@@ -351,6 +351,12 @@ input[type="file"]{
 
 .emoji-reaction {
   display: flex;
+  gap: 2rem;
+}
+
+.emoji-reaction div{
+  display: flex;
+  align-items: center;
 }
 
 .emoji {
@@ -361,7 +367,7 @@ input[type="file"]{
 }
 
 .emoji:hover {
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 
 .emoji.selected {

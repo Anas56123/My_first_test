@@ -4,6 +4,7 @@ import CommentForm from "../Comment/CommentForm";
 import CommentList from "../Comment/CommentList";
 import supabase from "../Supabase/supabase";
 import PostForm from "./PostForm";
+import LetUsTry from "../LetUsTry";
 
 export const Post = ({ post, newComment, setNewComment }) => {
   const [emoLove, setEmoLove] = useState(post.emoLoveSupabase);
@@ -231,6 +232,7 @@ export const Post = ({ post, newComment, setNewComment }) => {
           setNewComment={setNewComment}
         />
       </div>
+      <LetUsTry post={post} />
     </div>
   );
 };
