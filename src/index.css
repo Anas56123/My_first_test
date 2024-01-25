@@ -375,3 +375,14 @@ input[type="file"]{
   transform: scale(1.2);
 }
 
+.open-close{
+  width: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.open-close.active{
+  width: 250px;
+}

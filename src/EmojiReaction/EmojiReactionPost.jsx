@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const EmojiReactionComments = ({ post }) => {
+const EmojiReactionPost = ({ post }) => {
   const [selectedEmoji, setSelectedEmoji] = useState(null);
-  const [emoReaction, setEmoReaction] = useState(true);
+  const [emoReaction, setEmoReaction] = useState(false);
 
   const handleEmojiClick = (emoji) => {
     if (selectedEmoji === emoji) {
@@ -13,19 +13,15 @@ const EmojiReactionComments = ({ post }) => {
   };
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          if (emoReaction) {
-            setEmoReaction(false);
-          }
-          if (!emoReaction) {
-            setEmoReaction(true);
-          }
-        }}
-      >
-        {emoReaction ? "Close" : "Open"}
-      </button>
+    <div
+      className={`open-close ${emoReaction ? "active" : ""}`}
+      onMouseEnter={() => {
+        setEmoReaction(true);
+      }}
+      onMouseLeave={() => {
+        setEmoReaction(false);
+      }}
+    >
       {emoReaction ? (
         <div className="emoji-reaction">
           <div>
@@ -66,10 +62,11 @@ const EmojiReactionComments = ({ post }) => {
           </div>
         </div>
       ) : (
-        ''
+        ""
       )}
+      {emoReaction ? "" : "Like 👍"}
     </div>
   );
 };
 
-export default EmojiReactionComments;
+export default EmojiReactionPost;
