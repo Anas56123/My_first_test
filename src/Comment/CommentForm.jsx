@@ -36,7 +36,7 @@ const CommentForm = ({ addComment, id, newComment, setNewComment }) => {
             onKeyDown={handleSubmit}
           />
         </label>
-        <img src="./assets/Icons/Button copy 2.svg" className="t" />
+        <img src="./assets/Icons/Button copy 2.svg" className="t img" />
         <img src="./assets/Icons/Button-1 copy 2.svg" className="t" />
       </div>
     </form>

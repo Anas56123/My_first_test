@@ -64,7 +64,7 @@ const EmojiReactionComments = () => {
       ) : (
         ""
       )}
-      <p className="open-close-p">{emoReaction ? "Close" : "Open"}</p>
+      {emoReaction ? "" : "Like 👍"}
     </div>
   );
 };
